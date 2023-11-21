@@ -1,0 +1,28 @@
+.image-buttons img{
+    width:100px;
+    height:100px;
+    
+}
+.image-buttons button{
+    border:none;
+
+}
+.image-buttons{
+    display: flex;
+    justify-content: center;
+    
+    gap:20px
+    
+}
+header{
+    text-align: center;
+
+}
+.results{
+    border:solid;
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    margin-top: 25px;
+    text-align: center;
+}

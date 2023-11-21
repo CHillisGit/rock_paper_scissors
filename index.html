@@ -5,9 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-    <script src="javascript.js"></script>
+    
 </head>
 <body>
-    
+    <header>
+        <h1>Rock Paper Scissors</h1>
+        <h2>Score</h2>
+        <h3>You:<span id="userScore">0</span> CPU:<span id="cpuScore">0</span></h3>
+    </header>
+    <div class="image-buttons">
+        <button id="rock" class="btn"><img src="images/rock.png"></button>
+        <button id="paper" class="btn"><img src="images/paper.png"></button>
+        <button id="scissors" class="btn"><img src="images/scissors.png"></button>
+    </div>
+    <div class="results">
+        <p>User choice: <span id=userChoice></span></p>
+        <p>CPU choice: <span id=cpuChoice></span></p>
+        <p>You <span id=result></span>!</p>
+
+
+    </div>
+
+    <script src="javascript.js"></script>
 </body>
 </html>

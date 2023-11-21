@@ -1,54 +1,110 @@
+const buttons = document.querySelectorAll('.btn');
+const userScore = document.getElementById('userScore');
+const cpuScore = document.getElementById('cpuScore');
+const userChoice = document.getElementById('userChoice');
+const cpuChoice = document.getElementById('cpuChoice');
+const result= document.getElementById('result');
+let userScoreInt =0;
+let cpuScoreInt =0;
+
+
+  
+buttons.forEach((button) => {
+    
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', (e)=>{
+      playRound(button.id,getComputerChoice());
+    });
+  });
+
+
+function checkScore(){
+    if(Number(userScoreInt) == 5){
+        alert("You won!")
+        reset();
+        
+    }
+    else if(Number(cpuScoreInt) == 5){
+        alert("You lost");
+        reset();
+    }
+}
+function reset(){
+    userScoreInt =0;
+    cpuScoreInt =0;
+    userScore.textContent=userScoreInt;
+    cpuScore.textContent=cpuScoreInt;
+
+}
 function playRound(playerSelection, computerSelection){
     
-    console.log("Rock, Paper, Scissors and Shoot...");
-    console.log(`You: ${playerSelection} vs Computer: ${computerSelection}`);
+    userChoice.textContent=playerSelection;
+    cpuChoice.textContent=computerSelection;
     switch(playerSelection){
         case 'rock':
             if(computerSelection == 'rock'){
-                console.log("tie")
-                playRound(getPlayerSelection(),getComputerChoice())
-            }
-            else if(computerSelection=='scissors'){
-                console.log("You win")
+                result.textContent="tied";
                 
             }
+            else if(computerSelection=='scissors'){
+                result.textContent="won ";
+                userScoreInt++;
+                userScore.textContent=userScoreInt;
+                checkScore()
+            }
             else{
-                console.log("You lose")
+                result.textContent="lost"; 
+                cpuScoreInt++;
+                cpuScore.textContent=cpuScoreInt;
+                checkScore()
                 
             }
             break;
         case 'paper':
             if(computerSelection == 'paper'){
-                console.log("tie")
-                playRound(getPlayerSelection(),getComputerChoice())
+                result.textContent="tied";    
                 
             }
             else if(computerSelection=='rock'){
-                console.log("You win")
+                result.textContent="won";
+                userScoreInt++;
+                userScore.textContent=userScoreInt;
+                checkScore()
+                
                 
             }
             else{
-                console.log("You lose")
-
+                result.textContent="lost";
+                cpuScoreInt++;
+                cpuScore.textContent=cpuScoreInt;
+                checkScore()
+                
             }
             break;
             
         case 'scissors':
             if(computerSelection == 'scissors'){
-                playRound(getPlayerSelection(),getComputerChoice())
-                break;
+                result.textContent="tied";
+            
             }
             else if(computerSelection=='paper'){
-                console.log("You win")
-                break;
+                result.textContent="won";
+                userScoreInt++;
+                userScore.textContent=userScoreInt;
+                checkScore()
+                
             }
             else{
-                console.log("You lose")
+                result.textContent="lost";
+                cpuScoreInt++;
+                cpuScore.textContent=cpuScoreInt;
+                checkScore()
+                
             }
             break;
     }
 }
-
+/*
 function getPlayerSelection(){
     let playerSelection = prompt("Please enter rock paper or scissors:").toLowerCase();
     switch(playerSelection){
@@ -65,6 +121,7 @@ function getPlayerSelection(){
     }
     
 }
+*/
 function getComputerChoice(){
     
     let computerSelection =null;
@@ -102,4 +159,3 @@ function game(){
     }
 }
 
-game();
